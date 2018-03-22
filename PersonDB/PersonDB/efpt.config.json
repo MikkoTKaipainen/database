@@ -1,0 +1,1 @@
+﻿{"ContextClassName":"Tehtävä1Context","DefaultDacpacSchema":null,"IdReplace":false,"IncludeConnectionString":true,"OutputPath":"model","ProjectRootNamespace":"PersonDB","SelectedToBeGenerated":0,"Tables":["dbo.Person","dbo.Phone"],"UseDatabaseNames":false,"UseFluentApiOnly":false,"UseHandleBars":false,"UseInflector":false}
