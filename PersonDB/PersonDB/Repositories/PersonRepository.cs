@@ -48,5 +48,14 @@ namespace PersonDB.Repositories
                 _context.Person.Remove(delPerson);
             _context.SaveChanges();
         }
+
+        public Person GetPersonByIdAndPhones(int id)
+        {
+            var person = _context.Person
+                .Include(p => p.Phone)
+                .Single(p => p.Id == id);
+
+            return person;
+        }
     }
 }

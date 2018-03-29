@@ -38,5 +38,10 @@ namespace PersonDB.model
         {
             return $"{Name}, {Age}";
         }
+
+        public string ShowData()
+        {
+            return $"{Id}, {Name}, {Age}";
+        }
     }
 }
