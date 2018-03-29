@@ -1,6 +1,7 @@
 ﻿using System;
 using PersonDB.model;
 using PersonDB.Repositories;
+using System.Linq;
 
 namespace PersonDB
 {
@@ -9,10 +10,11 @@ namespace PersonDB
         static void Main(string[] args)
         {
             Console.WriteLine("Database CRUD operations");
-            //Person person = new Person("Mikko",25);
-            //PersonRepository.Create(person);
+            Person person = new Person("Mikko", 25);
+            PersonRepository Repository = new PersonRepository();
+            PersonRepository.Create(person);
 
-            var persons = PersonRepository.Get();
+            var persons = Repository.Get();
             foreach (var p in persons)
             {
                 Console.WriteLine(p.ToString());
@@ -21,7 +23,6 @@ namespace PersonDB
             Console.WriteLine("Press any key to exit...");
             Console.ReadKey();
 
-           
         }
     }
 }
