@@ -28,7 +28,31 @@ namespace PersonDB.ViewPerson
                 Console.WriteLine($"\n   {phnPhone.ToString()}");
             }
             Console.WriteLine("\n-------------\n");
+        }
 
+        public static void AddPerson()
+        {
+            Console.Write("Type your name:  ");
+            string name = Console.ReadLine();
+            Console.Write("Type your age:  ");
+            short age = short.Parse(Console.ReadLine());
+
+            List<Phone> phones = new List<Phone>();
+            string addAnotherPhone = "Y";
+            do
+            {
+                Console.Write("Type your phone:  ");
+                string addPhone = Console.ReadLine();
+                Console.Write("Your phone type <Home/Work>:  ");
+                string addType = Console.ReadLine();
+                Console.Write("Add another phone? <Y/N>");
+                addAnotherPhone = Console.ReadLine().ToUpper();
+            }
+            while (addAnotherPhone == "Y");
+
+            var addPerson = new Person(name, age, phones);
+            PersonRepository personRepository = new PersonRepository();
+            personRepository.Create(addPerson);
         }
     }
 }

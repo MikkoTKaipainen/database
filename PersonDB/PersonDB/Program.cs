@@ -11,27 +11,7 @@ namespace PersonDB
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Database CRUD operations");
-            Person person = new Person()
-            {
-                Name = "Terho",
-                Age = 33,
-                Phone = new List<Phone>
-                {
-                    new Phone {Number = "0504004000", Type = "Work"},
-                    new Phone {Number = "0405005000", Type = "Home"}
-                }
-            };
-
-
-            PersonRepository Repository = new PersonRepository();
-            Repository.Create(person);
-
-            var persons = Repository.Get();
-            foreach (var p in persons)
-            {
-                Console.WriteLine(p.ToString());
-            }
+            UIForConsoleApp();
         }
 
         public static void UIForConsoleApp()
@@ -55,8 +35,9 @@ namespace PersonDB
                 switch (info.Key)
                 {
                     case ConsoleKey.C:
-                        var person = new Person("Masa", 25);
-                        personRepository.Create(person);
+                        View.AddPerson();
+                        //var person = new Person("Torsti", 25);
+                        //personRepository.Create(person);
                         break;
                     case ConsoleKey.R:
                         View.PrintToScreen(personRepository.Get());
@@ -64,9 +45,9 @@ namespace PersonDB
                         Console.ReadLine();
                         break;
                     case ConsoleKey.U:
-                        Person updatePerson = personRepository.GetPersonById(10);
-                        updatePerson.Name = "James Bond";
-                        updatePerson.Age = 55;
+                        Person updatePerson = personRepository.GetPersonById(4);
+                        updatePerson.Name = "JohnsonTakeOver";
+                        updatePerson.Age = 555;
                         personRepository.Update(1, updatePerson);
                         break;
                     case ConsoleKey.D:
@@ -80,16 +61,6 @@ namespace PersonDB
                         Console.ReadLine();
                         break;
                     case ConsoleKey.Escape:
-                        Console.WriteLine("\nProgram end after 3 sec!");
-                        for (int i = 0; i < 3; i++)
-                        {
-                            Console.Write(".");
-                            System.Threading.Thread.Sleep(1000);
-                        }
-                        break;
-                    default:
-                        Console.WriteLine("\nWrong KEY - try again!");
-                        System.Threading.Thread.Sleep(2000);
                         break;
                 }
 
