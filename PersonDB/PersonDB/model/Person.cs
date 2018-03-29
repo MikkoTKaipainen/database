@@ -16,6 +16,7 @@ namespace PersonDB.model
         {
             Name = name;
             Age = age;
+            Phone = new HashSet<Phone>();
         }
 
         public Person(string name, short? age, ICollection<Phone> phone)
